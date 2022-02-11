@@ -9,7 +9,8 @@
 ## Languages:
 * HTML
 * CSS
-* Other Languages: - TBD
+* PHP
+* SQL
 
 ## Features:
 * Create Account
