@@ -7,8 +7,8 @@
 * **Cooper Earls** - Bruvce
 
 ## Languages:
-*HTML
-*CSS
-*Other Languages: - TBD
+* HTML
+* CSS
+* Other Languages: - TBD
 
 ## Features:
