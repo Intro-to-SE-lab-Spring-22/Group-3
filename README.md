@@ -12,3 +12,7 @@
 * Other Languages: - TBD
 
 ## Features:
+* Create Account
+* Add Posts to Timeline
+* Send/Recieve Friend Requests
+* Like, Comment, and Share on Friends' Timelines
