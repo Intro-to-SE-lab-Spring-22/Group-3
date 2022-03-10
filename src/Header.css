@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    display: flex;
+    padding: 15px 20px;
+    justify-content: space-around;
+    position: fixed;
+    background: #fff;
+    width: 97.3%;
+    z-index: 1;
+    box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+  }
+
+  .header_right {
+    display: flex;
+  }
+
+  .header_mid img {
+    height: 40px;
+  }
+
+  .header_left img {
+    height: 40px;
+    width: 50px;
+  }
+
+  .header_mid {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .header .home {
+      padding-right: 40px;
+  }
