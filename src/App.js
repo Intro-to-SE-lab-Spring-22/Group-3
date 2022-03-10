@@ -1,24 +1,26 @@
 import React from "react";
 import './App.css';
 import Login from "./Login";
-import { useStateValue } from './StateProvider';
+import Header from "./Header";
+import Body from "./Body";
+import { useAuth } from "./firebase";
+import { useStateValue } from "./StateProvider";
+import { handleLogin } from "./Login";
+
+
 
 function App() {
-  const [{user}, dispatch] = useStateValue();
-
+  //const [{ user }, dispatch] = useStateValue();
+  const currentUser = useAuth();
   return (
     <div className="app">
-
-      {!user ? ( <Login /> ) : (
+      {!currentUser ? ( <Login /> ) : (
         <>
-          <header className="App-header">
-        
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-       
-          </header>
+          <Header />
 
+          <div className="app_body">
+            <Body />
+          </div>
         </>
       )}
       

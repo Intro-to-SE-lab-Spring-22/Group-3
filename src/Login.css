@@ -9,7 +9,9 @@
 .login > div > img 
 {
     object-fit: contain;
+    padding-bottom: 20px;
     height: 150px;
+    width: 450px;
 }
 
 .login > div 
@@ -20,14 +22,16 @@
 
 .login > button
 {
-    width: 300px;
-    background-color: black;
+    width: 150px;
+    background-color: #1877f2;
     color: white;
+    position: relative;
+    bottom: 75px;
     font-weight: 800;
 }
 
 .login > button:hover
 {
-    background-color: grey;
-    color: black;
+    background-color: rgb(219, 213, 213);
+    color: #1877f2;
 }
