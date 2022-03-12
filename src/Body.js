@@ -1,12 +1,11 @@
 import react from "react";
 import "./Body.css";
+import Post from "./sendPost";
 
 function Body() {
     return (
-        <div className="center_body">
-            <b>
-            Body Place Holder    
-            </b>    
+        <div className="feed">
+              <Post />
         </div>
 
 

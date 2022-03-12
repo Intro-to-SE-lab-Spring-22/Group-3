@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button, Icon } from "@material-ui/core";
 import React from "react";
 import "./Header.css";
 import Login from "./Login";
@@ -8,12 +8,18 @@ import HomeIcon from '@material-ui/icons/Home';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 
 
+
+
+
+
 function Header() {
     
     async function handleLogout() {
         await logout();
     }
+    
 
+    
     return (
         <div className="header">
 
@@ -25,20 +31,27 @@ function Header() {
             </div>
             <div className="header_mid">
                 <div className="home">
-                    <HomeIcon fontSize="large" />
+                    <IconButton>
+                        <HomeIcon fontSize="large" />
+                    </IconButton>
                 </div>
 
                 <div className="followers">
-                    <SupervisedUserCircleIcon fontSize="large" />
-
+                    <IconButton>
+                        <SupervisedUserCircleIcon fontSize="large" />
+                    </IconButton>
                 </div>    
 
 
             </div>
 
             <div className="header_right">
-                <div className="avatar">
-                  <Avatar />    
+                <div className="acc_drop">
+                    <div className="container">
+                        <IconButton type="button" class="button">
+                            <Avatar />    
+                        </IconButton>
+                    </div>
                 </div>
 
                 <div className="logout">
@@ -46,6 +59,8 @@ function Header() {
                     Log Out
                     </Button>
                 </div>
+
+                
             </div>
 
         </div>

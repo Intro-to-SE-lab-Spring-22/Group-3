@@ -39,16 +39,25 @@ function Login() {
                       />
                 </div>
 
-                <div className="login_input">
+                <div className="email_input">
                     <input ref={ emailRef } placeholder="Email" />
-                    <input ref={ passwordRef } type="password" placeholder="Password" />
-
-
                 </div>
+
+                <div className="password_input">
+                    <input ref={ passwordRef } type="password" placeholder="Password" />
+                </div>
+
+
 
                 <Button type="submit" onClick={ handleLogin }>
                     Log In
                 </Button>
+
+                <div className='mid'>
+                    <p>
+                        or
+                    </p>
+                </div>
 
                 <Button type="submit"  onClick={ handleSignup } >
                     Sign Up

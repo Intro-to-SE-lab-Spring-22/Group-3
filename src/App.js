@@ -13,11 +13,12 @@ function App() {
   //const [{ user }, dispatch] = useStateValue();
   const currentUser = useAuth();
   return (
+    // Bem
     <div className="app">
       {!currentUser ? ( <Login /> ) : (
         <>
+          
           <Header />
-
           <div className="app_body">
             <Body />
           </div>
