@@ -1,4 +1,6 @@
 import firebase from 'firebase/compat/app';
+//import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { useEffect, useState } from "react";
@@ -20,8 +22,14 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+//postsRef = collection(db, "posts");
+
 const auth = getAuth();
+
+export const database = getFirestore();
 
 export function signUp(email, password) {
   return createUserWithEmailAndPassword(auth, email, password);
@@ -46,3 +54,5 @@ export function useAuth() {
   return currentUser;
 
 }
+
+export { db, getFirestore, collection, getDocs };

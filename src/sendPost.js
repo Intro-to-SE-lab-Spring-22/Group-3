@@ -1,19 +1,50 @@
-import React from "react";
+import React, {useState } from "react";
 import "./sendPost.css";
-import { Button, Avatar, Icon, IconButton } from "@material-ui/core";
+import { db, useAuth } from './firebase';
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { Button, Avatar, Icon, IconButton} from "@material-ui/core";
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 
 function Post() {
-    return <div className="messageSender">
+    
+    const currentUser = useAuth();
+    const [input, setInput] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        addDoc(collection(db, 'posts'), {
+            message: input,
+            timestamp: serverTimestamp(),
+            profilePic: currentUser.photoURL,
+            username: currentUser.displayName,
+            image: imageUrl
+        });
+
+        setInput("");
+        setImageUrl("");
+    }
+    
+    
+
+    
+    return (
+    <div className="messageSender">
         <div className="messageSender_top">
             <Avatar /> 
             <form>
                     <input
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
                         placeholder={`What's on your mind, ?`} />
 
-                    <input placeholder="Image Url (optional) "  />
+                    <input 
+                        value={imageUrl}
+                        onChange={(e) => setImageUrl(e.target.value)}
+                        placeholder="Image Url (optional) "  />
 
-                    <Button type="submit" >post</Button>
+                    <Button onClick={handleSubmit} type="submit" >post</Button>
             </form>   
         
         </div>
@@ -23,7 +54,7 @@ function Post() {
                 <IconButton>
                     <PhotoLibraryIcon style={{ color: "#1877f2"}} />
                 </IconButton>
-                    <h8>Add Photo/Video</h8>
+                    <h7>Add Photo/Video</h7>
             </div>
         
         </div>
@@ -32,7 +63,7 @@ function Post() {
     
     
     </div>
-
+    )
 }
 
 export default Post;
