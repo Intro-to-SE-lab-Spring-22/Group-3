@@ -72,7 +72,27 @@
   .post_option > p {
     margin-left: 18px;
   }
-  .post_option:hover {
-    background: #eff2f5;
-    border-radius: 5px;
+
+
+  .post__commentBox {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .post__comments {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px 25px;
+  }
+
+  .post__comments > p {
+    font-size: medium;
+  }
+
+  .post__button {
+    flex: 0;
+    border: none;
+    color: #2f7fcf;
+    background-color: #eff2f5;
+    border-top: 1px solid lightgray;
   }

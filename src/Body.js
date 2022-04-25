@@ -4,12 +4,18 @@ import Post from "./sendPost";
 import { initializeApp } from "firebase/app";
 import {collection, query, orderBy, onSnapshot} from "firebase/firestore"
 import {db} from './firebase'
+import {comments} from "./Timeline";
 import Timeline from "./Timeline";
 import firebaseConfig from "./firebase";
+import { getAuth } from "firebase/auth";
+import Followers from "./Followers";
 
 function Body() {
 
     const [posts, setPosts] = useState([]);
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const username = user.email;
     console.log("hello");
     
     useEffect(() => {
@@ -21,21 +27,31 @@ function Body() {
         })))
       })
     },[])
+
   
     return (
         <div className="feed">
-              <Post />
+              <div className="follow">
+                <Followers />
+              </div>
 
-              {posts.map((post) => (
-                <Timeline 
+              <div className="middle">
+
+                <Post />
+
+                {posts.map((post) => (
+                  <Timeline 
                   key={post.id}
+                  postID={post.id}
                   profilePic={post.data.profilePic}
                   message={post.data.message}
                   timestamp={post.data.timestamp}
                   username={post.data.username}
                   image={post.data.image}  
-                />
-              ))}
+                  />
+                  ))}
+              </div>
+              
         </div>
 
 

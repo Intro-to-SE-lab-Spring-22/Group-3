@@ -1,11 +1,17 @@
-.feed {
-    flex: 1;
-    margin-left: 150px;
-    margin-top: 70px;
-    padding: 30px 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
+.middle {
+  flex: 1;
+  margin-left: 200px;
+  margin-top: 70px;
+  padding: 30px 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.follow {
+  padding: 100px 10px;
+  flex: 0.33;
+  position: fixed;
+}

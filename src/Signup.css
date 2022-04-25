@@ -1,0 +1,12 @@
+.signup
+{
+    display: grid;
+    place-items: center;
+    height: 65vh;
+}
+
+.signup > div 
+{
+    display: flex;
+    flex-direction: column;
+}

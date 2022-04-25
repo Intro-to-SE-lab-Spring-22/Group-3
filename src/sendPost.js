@@ -4,12 +4,17 @@ import { db, useAuth } from './firebase';
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { Button, Avatar, Icon, IconButton} from "@material-ui/core";
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
+import { getAuth } from "firebase/auth";
 
 function Post() {
-    
+    const auth = getAuth();
+    const user = auth.currentUser;
     const currentUser = useAuth();
+    const [file, setFile] = useState("");
     const [input, setInput] = useState("");
     const [imageUrl, setImageUrl] = useState("");
+
+    const username = user.email;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,14 +23,17 @@ function Post() {
             message: input,
             timestamp: serverTimestamp(),
             profilePic: currentUser.photoURL,
-            username: currentUser.displayName,
+            username: username,
             image: imageUrl
         });
 
         setInput("");
         setImageUrl("");
     }
-    
+
+    function uploadFile(e) {
+        setFile(e.target.files[0]);
+      }
     
 
     
@@ -37,7 +45,7 @@ function Post() {
                     <input
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        placeholder={`What's on your mind, ?`} />
+                        placeholder={`What's on your mind?`} />
 
                     <input 
                         value={imageUrl}
@@ -54,7 +62,7 @@ function Post() {
                 <IconButton>
                     <PhotoLibraryIcon style={{ color: "#1877f2"}} />
                 </IconButton>
-                    <h7>Add Photo/Video</h7>
+                    <button type="file" onClick={uploadFile}>Add Photo</button>
             </div>
         
         </div>

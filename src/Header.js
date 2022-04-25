@@ -6,7 +6,13 @@ import { logout } from "./firebase";
 import { Avatar, IconButton } from '@material-ui/core'
 import HomeIcon from '@material-ui/icons/Home';
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Routes,
+  } from "react-router-dom";
+import EditProfile from "./editProfile";
 
 
 
@@ -46,6 +52,16 @@ function Header() {
             </div>
 
             <div className="header_right">
+                <div className="edit_profile">
+                <Router>
+                        <nav>
+                            <Link to="editProfile">Edit Profile</Link>
+                        </nav>
+                        <Routes>
+                            <Route path="editProfile" element={<EditProfile />} />
+                        </Routes>
+                    </Router>
+                </div>
                 <div className="acc_drop">
                     <div className="container">
                         <IconButton type="button" class="button">
