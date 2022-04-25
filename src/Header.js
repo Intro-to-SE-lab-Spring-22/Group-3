@@ -31,7 +31,7 @@ function Header() {
 
             <div className="header_left">
                 <img
-                    src="https://www.freepnglogos.com/uploads/facebook-logo-icon/facebook-logo-icon-file-facebook-icon-svg-wikimedia-commons-4.png"
+                    src="Glogo.png"
                     alt=""
                 />
             </div>
