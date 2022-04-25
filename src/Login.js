@@ -40,7 +40,7 @@ function Login() {
         <div className='login'>
                 <div className="loginLogo">
                     <img
-                      src="https://download.logo.wine/logo/Facebook/Facebook-Logo.wine.png"
+                      src="GitBooklogo.png"
                       alt=""
                       />
                 </div>
