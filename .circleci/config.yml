@@ -13,17 +13,21 @@ jobs:
         #Access the github code
       - checkout
       
+        #Do dependencie stuff
       - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum"package.json" }}
-          - v1-dependencies-
+          keys:
+            - v1-dependencies-{{ checksum"package.json" }}
+            - v1-dependencies-
           
-        - run: yarn install
-      
-      
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  say-hello-workflow:
-    jobs:
-      - say-hello
+      - run: npm install
+      -run:
+        name: Run npm tests
+        command: npm test
+      -run:
+        name: Run npm build
+        command: npm run build
+
+      -save_cache:
+        paths:
+          -node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
