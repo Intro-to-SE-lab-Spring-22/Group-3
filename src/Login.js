@@ -1,11 +1,8 @@
 import React from 'react';
-import { useRef, useState } from "react";
-import { signUp, logIn, useAuth } from "./firebase";
+import { useRef } from "react";
+import { logIn, useAuth } from "./firebase";
 import { Button } from "@material-ui/core";
 import "./Login.css";
-import { actionTypes } from './Reducer';
-import { useStateValue } from './StateProvider';
-import { Email, RestoreOutlined } from '@material-ui/icons';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import {
     BrowserRouter as Router,
@@ -17,7 +14,6 @@ import Signup from './Signup';
 
 
 function Login() {
-    //const currentUser = useAuth();
     const emailRef = useRef();
     const passwordRef = useRef();
     const currentUser = useAuth();

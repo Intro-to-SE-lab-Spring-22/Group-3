@@ -4,16 +4,13 @@ import Login from "./Login";
 import Header from "./Header";
 import Body from "./Body";
 import { useAuth } from "./firebase";
-import { useStateValue } from "./StateProvider";
-import { handleLogin } from "./Login";
 
 
 
 function App() {
-  //const [{ user }, dispatch] = useStateValue();
   const currentUser = useAuth();
   return (
-    // Bem
+
     <div className="app">
       {!currentUser ? ( <Login /> ) : (
         <>

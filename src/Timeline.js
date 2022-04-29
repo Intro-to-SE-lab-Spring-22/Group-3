@@ -6,10 +6,6 @@ import { DeleteForever } from '@material-ui/icons';
 import { doc, setDoc, addDoc, deleteDoc, collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from './firebase';
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import NearMeIcon from '@material-ui/icons/NearMe';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Button } from "@material-ui/core";
 import "./Timeline.css";
 
@@ -135,8 +131,6 @@ function Timeline({ postID, profilePic, image, timestamp, username, message}) {
                 ))}
             </div>
 
-
-
             <div className="post_options">
                 
 
@@ -145,10 +139,6 @@ function Timeline({ postID, profilePic, image, timestamp, username, message}) {
                 </div> : <div onClick={likepost}>
                     <ThumbUpIcon height={25}width={25} alt="like" />
                 </div>}
-
-
-
-
 
 
             <div className="post_option">
@@ -173,13 +163,6 @@ function Timeline({ postID, profilePic, image, timestamp, username, message}) {
                     </form>
             </div>
 
-                
-
-
-
-
-               
-                
             </div>
         </div>
 

@@ -1,7 +1,6 @@
-import { Button, Icon } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import React from "react";
 import "./Header.css";
-import Login from "./Login";
 import { logout } from "./firebase";
 import { Avatar, IconButton } from '@material-ui/core'
 import HomeIcon from '@material-ui/icons/Home';
@@ -13,10 +12,6 @@ import {
     Routes,
   } from "react-router-dom";
 import EditProfile from "./editProfile";
-
-
-
-
 
 function Header() {
     
