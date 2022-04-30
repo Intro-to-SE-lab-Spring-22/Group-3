@@ -1,8 +1,12 @@
 version: 2.1
 
+# Define the orb
+orbs: 
+  node: circleci/node@5.0.2
+
 # Define a job to be invoked later in a workflow.
 jobs:
-  build:
+  test:
     # Specify the execution environment with a docker
     docker:
         #Specify the node version/image
@@ -11,7 +15,8 @@ jobs:
       
     steps:
         #Access the github code
-      - checkout
+      - checkout:
+        working_directory: ~/repo/src
       
         #Do dependencie stuff
       - restore_cache:
@@ -19,15 +24,19 @@ jobs:
             - v1-dependencies-{{ checksum"package.json" }}
             - v1-dependencies-
           
-      - run: npm install
+        #install npm
+      - run: 
+        name: install npm
+        command: npm install
+        #Move to source directory and run test
       -run:
-        name: Run npm tests
-        command: npm test
-      -run:
-        name: Run npm build
-        command: npm run build
-
-      -save_cache:
-        paths:
-          -node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
+        name: run npm tests
+        command: cd src/ && npm test
+        
+  build:
+    
+        
+workflows:
+  the_only_workflow:
+    jobs:
+      - test
